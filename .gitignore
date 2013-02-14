@@ -16,3 +16,4 @@
 .powenv
 .powrc
 .rvmrc
+.env
