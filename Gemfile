@@ -5,7 +5,6 @@ gem 'rails', '3.2.10'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "slim", "~> 1.3.5"
-gem 'sqlite3'
 gem 'douban_api', '~> 0.1.4'
 gem 'whenever'
 gem 'nokogiri'
@@ -26,12 +25,17 @@ end
 gem 'jquery-rails'
 
 group :development do
+  gem 'sqlite3'
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'rails_best_practices'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+end
+
+group :production do
+  gem 'pg'
 end
 
 
