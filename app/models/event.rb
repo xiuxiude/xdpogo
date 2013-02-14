@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  has_many :users, :through => :userevents
+  has_many :userevents
   attr_accessible :id, :adapt_url, :title, :image, :image_hlarge, :image_lmobile,
                   :geo, :address, :album, :participant_count, :wisher_count,
                   :begin_time, :end_time, :content, :owner_id
@@ -23,5 +25,17 @@ class Event < ActiveRecord::Base
       event.save!
     end
   end
-
+    
+  def wishers
+    User.where(
+    :id => Userevent.where(:event_id=>id, :join_type=>"wish").map(&:user_id)
+    )
+  end
+  
+  def participanters
+    User.where(
+    :id => Userevent.where(:event_id=>id, :join_type=>"participant").map(&:user_id)
+    )
+  end
+  
 end

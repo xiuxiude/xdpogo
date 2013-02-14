@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :events, :through => :userevents
+  has_many :userevents  
   attr_accessible :id, :avatar, :name, :signature, :uid
   
   def self.find_with_douban(user_info)
@@ -14,5 +16,8 @@ class User < ActiveRecord::Base
       user_info.slice(:id, :avatar, :name, :signature, :uid)
       )
   end
-
+  
+  def douban_url
+    "http://www.douban.com/people/#{id}/"
+  end
 end
