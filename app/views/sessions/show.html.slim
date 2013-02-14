@@ -1,0 +1,25 @@
+.row
+  .span6
+    h1
+      = @user.name
+    - unless @user.desc.blank?
+      p
+        = @user.desc
+.row
+  .span8
+    #timeline
+      - @timeline.each do |status|
+        .status
+          = image_tag(status.user.small_avatar,  :class => "avatar pull-right")
+          h3
+            span
+              = status.user.screen_name
+            = status.title
+          p
+            = status.text
+  .span2
+    = form_tag(signout_path, :method => 'delete') do
+      fieldset
+        .form-actions
+          button.btn.btn-danger#sign_out
+            = "sign out"

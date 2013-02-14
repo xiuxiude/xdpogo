@@ -1,0 +1,8 @@
+section#events
+  .row
+    .span8
+      ul
+        - for event in @events
+          li.event
+            .title  = event.title
+            .pic = image_tag event.image, :class => "pull-right"
