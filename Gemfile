@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,6 +9,7 @@ gem 'douban_api', '~> 0.1.4'
 gem 'whenever'
 gem 'nokogiri'
 gem 'thin'
+gem 'seed_dump'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
