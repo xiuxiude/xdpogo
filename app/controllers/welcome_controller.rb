@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @events = Event.order("begin_time asc").limit(50)
+    @events = Event.where("begin_time>=:date", date:Time.now)
+                    .order("begin_time ASC")
   end
 end

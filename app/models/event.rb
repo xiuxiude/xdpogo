@@ -38,4 +38,7 @@ class Event < ActiveRecord::Base
     )
   end
   
+  def douban_url
+    "http://www.douban.com/event/#{id}/"
+  end
 end
