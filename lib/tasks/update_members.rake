@@ -16,9 +16,10 @@ namespace :douban do
       doc = Nokogiri::HTML(open("#{base_url}?start=#{page_num*35}"))
       doc.css('.member-list').last.css('div.name a').each do |user|
         user_id = user_url_to_id(user["href"])
+        puts "user_id #{user_id}"
         user = User.find_with_douban Douban.user(user_id)
         p user
-        sleep 0.3
+        sleep 0.5
       end
     end
 
