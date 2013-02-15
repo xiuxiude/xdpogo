@@ -25,7 +25,6 @@ namespace :douban do
     start = 0
     results = []
     begin
-      binding.pry
       users = Douban.send(user_type, id, :count=>50, :start=>start)
       start += 50
       p users
