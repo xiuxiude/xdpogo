@@ -13,8 +13,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :album
       t.integer :participant_count
       t.integer :wisher_count
-      t.time   :begin_time
-      t.time   :end_time
+      t.datetime   :begin_time
+      t.datetime   :end_time
       
       
  
