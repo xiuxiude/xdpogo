@@ -1,10 +1,13 @@
 class CreateUserevents < ActiveRecord::Migration
   def change
-    create_table :userevents do |t|
-      t.integer :user_id
+    create_table :wish_users, :id => false do |t| 
       t.integer :event_id
-      t.string  :join_type
-      t.timestamps
-    end
+      t.integer :user_id
+    end 
+
+    create_table :participation_users, :id => false do |t| 
+      t.integer :event_id
+      t.integer :user_id
+    end 
   end
 end

@@ -32,12 +32,9 @@ ActiveRecord::Schema.define(:version => 20130214112435) do
     t.string   "owner_id"
   end
 
-  create_table "userevents", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "event_id"
-    t.string   "join_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "participation_users", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -47,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20130214112435) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "wish_users", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "user_id"
   end
 
 end

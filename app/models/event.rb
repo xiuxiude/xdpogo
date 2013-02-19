@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
-  has_many :users, :through => :userevents
-  has_many :userevents
+  has_and_belongs_to_many :wishers, :class_name => User, :join_table => "wish_users"
+  has_and_belongs_to_many :participanters, :class_name => User, :join_table => "participation_users"
+
   attr_accessible :id, :adapt_url, :title, :image, :image_hlarge, :image_lmobile,
                   :geo, :address, :album, :participant_count, :wisher_count,
                   :begin_time, :end_time, :content, :owner_id
@@ -26,18 +27,6 @@ class Event < ActiveRecord::Base
     end
   end
     
-  def wishers
-    User.where(
-    :id => Userevent.where(:event_id=>id, :join_type=>"wish").map(&:user_id)
-    )
-  end
-  
-  def participanters
-    User.where(
-    :id => Userevent.where(:event_id=>id, :join_type=>"participant").map(&:user_id)
-    )
-  end
-  
   def douban_url
     "http://www.douban.com/event/#{id}/"
   end

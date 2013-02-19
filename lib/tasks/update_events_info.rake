@@ -6,18 +6,9 @@ namespace :douban do
       wishers = get_users(:event_wishers, event.id).map{|u| u.id.to_i}
       participanters = get_users(:event_participants, event.id).map{|u| u.id.to_i}
       users = User.all.map(&:id)
+      event.wishers = User.where(:id=>wishers&users)
+      event.participanters = User.where(:id=>participanters&users)
       sleep 3
-
-      (wishers&users).each do |user|
-        Userevent.create(:event_id=>event.id, :user_id=>user, :join_type => "wish")
-      end
-
-      (participanters&users).each do |user|
-        Userevent.create(:event_id=>event.id,
-                          :user_id=>user,
-                          :join_type => "participant")
-      end
-      
     end
   end
   

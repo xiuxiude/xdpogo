@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :events, :through => :userevents
-  has_many :userevents  
+  has_and_belongs_to_many :wish, :class_name => Event, :join_table => "wish_users"
+  has_and_belongs_to_many :participant, :class_name => Event, :join_table => "participation_users"
+  
   attr_accessible :id, :avatar, :name, :signature, :uid
   
   def self.find_with_douban(user_info)
