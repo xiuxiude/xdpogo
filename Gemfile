@@ -10,6 +10,7 @@ gem 'whenever'
 gem 'nokogiri'
 gem 'thin'
 gem 'seed_dump'
+gem 'pry-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,7 +28,6 @@ gem 'jquery-rails'
 
 group :development do
   gem 'sqlite3'
-  gem 'pry-rails'
   gem 'pry-remote'
   gem 'rails_best_practices'
   gem 'better_errors'
