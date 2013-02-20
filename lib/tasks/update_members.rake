@@ -7,8 +7,7 @@ end
 namespace :douban do
   desc "update group members from XDPOGO group"
   task :update_members => :environment do
-    group_id = "xidianPOGO"
-    base_url = "http://www.douban.com/group/#{group_id}/members"
+    base_url = "http://www.douban.com/group/#{GROUP_ID}/members"
     first_doc = Nokogiri::HTML open(base_url)
     last_page_num = first_doc.css('.paginator>a').last.text.to_i
     (0..last_page_num).each do |page_num|

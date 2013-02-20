@@ -1,8 +1,7 @@
 namespace :douban do
   desc "update events from douban"
   task :update_events => :environment do
-    loc_id = 118371
-    events = Douban.events(loc_id,
+    events = Douban.events(LOC_ID,
       :type => "music",
       :day_type => "future",
       :count => 50
