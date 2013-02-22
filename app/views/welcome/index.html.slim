@@ -1,6 +1,6 @@
 section#events
   .row
-    .span8
+    .span10
     - unless @events.empty?
       table.table-condensed.table
         thead
@@ -13,21 +13,12 @@ section#events
         - for event in @events
           - unless event.wishers.empty? and event.participanters.empty?
             tr
-              td = link_to event.title, event.douban_url
+              td.show-title 
+                h3 = link_to event.title, event.douban_url
               td = image_tag event.image
               td
                 ul.user-list
-                  - for user in event.wishers
-                    li.clearfix
-                      = link_to image_tag(user.avatar, :class=>"face"), user.douban_url
-                      .info
-                        h4 = user.name
-                        p = user.signature
+                  = render :partial => "user", :collection => event.wishers
               td
                 ul.user-list
-                  - for user in event.participanters
-                    li.clearfix
-                      = link_to image_tag(user.avatar, :class=>"face"), user.douban_url
-                      .info
-                        h4 = user.name
-                        p = user.signature
+                  = render :partial => "user", :collection => event.participanters
