@@ -1,0 +1,4 @@
+li.clearfix
+  = link_to image_tag(user.avatar, :class=>"face img-circle"), user, :"data-toggle" => "tooltip", :title => user.signature
+  .info
+    h4 = user.name

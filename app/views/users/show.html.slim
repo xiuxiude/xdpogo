@@ -1,0 +1,49 @@
+section#user
+  .row
+    .span3
+      .user-avatar
+        = image_tag @user.large_avatar, :class=>"img-rounded"
+      p.signature
+        = @user.signature
+    .span8
+      h3
+        span.name = @user.name
+        | 感兴趣的演出
+      - unless @user.wish.empty?
+        table.table-condensed.table
+          thead
+            tr
+              th 演出
+              th 海报
+          tbody 
+            - for event in @user.wish do
+                tr
+                  td.show-title 
+                    h3 = link_to event.title, event.douban_url
+                  td = image_tag event.image
+      - else
+        span.name = @user.name
+        .alert.alert-info
+          = @user.name
+          | 没有感兴趣的演出
+      h2
+        span.name = @user.name
+        | 要参加的演出
+      - unless @user.participant.empty?
+        table.table-condensed.table
+          thead
+            tr
+              th 演出
+              th 海报
+          tbody 
+            - for event in @user.participant do
+                tr
+                  td.show-title 
+                    h3 = link_to event.title, event.douban_url
+                  td = image_tag event.image
+      - else
+        .alert.alert-info
+          = @user.name
+          | 没有要参加的演出
+
+        
