@@ -22,7 +22,6 @@ section#user
                     h3 = link_to event.title, event.douban_url
                   td = image_tag event.image
       - else
-        span.name = @user.name
         .alert.alert-info
           = @user.name
           | 没有感兴趣的演出
