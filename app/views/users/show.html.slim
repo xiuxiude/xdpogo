@@ -6,10 +6,10 @@ section#user
       p.signature
         = @user.signature
     .span8
-      h3
-        span.name = @user.name
-        | 感兴趣的演出
       - unless @user.wish.empty?
+        h2
+          span.name = @user.name
+          | 感兴趣的演出
         table.table-condensed.table
           thead
             tr
@@ -25,10 +25,11 @@ section#user
         .alert.alert-info
           = @user.name
           | 没有感兴趣的演出
-      h2
-        span.name = @user.name
-        | 要参加的演出
+          
       - unless @user.participant.empty?
+        h2
+          span.name = @user.name
+          | 要参加的演出
         table.table-condensed.table
           thead
             tr
