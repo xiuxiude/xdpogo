@@ -1,7 +1,9 @@
 namespace :douban do
   desc "update events info from douban "
   task :update_events_info => [:environment, :update_events] do
-    Event.where("begin_time>=:date", date:Time.now).each do |event|
+    Event.where("begin_time>=:date", date:Time.now)
+    .order("begin_time DESC")
+    .each do |event|
       p event
       wishers = get_users(:event_wishers, event.id).map{|u| u.id.to_i}
       participanters = get_users(:event_participants, event.id).map{|u| u.id.to_i}
