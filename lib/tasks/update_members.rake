@@ -13,7 +13,7 @@ namespace :douban do
     (0..last_page_num).each do |page_num|
       puts "page num #{page_num}"
       doc = Nokogiri::HTML(open("#{base_url}?start=#{page_num*35}"))
-      doc.css('.member-list').last.css('div.name a').each do |user|
+      doc.css('.member-list div.name a').each do |user|
         p user
         user_id = user_url_to_id(user["href"])
         user_info = Douban.user(user_id)

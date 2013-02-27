@@ -10,7 +10,7 @@ namespace :douban do
       users = User.all.map(&:id)
       event.wishers = User.where(:id=>wishers&users)
       event.participanters = User.where(:id=>participanters&users)
-      sleep 6
+      sleep 10
     end
   end
   
