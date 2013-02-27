@@ -14,11 +14,16 @@ namespace :douban do
       puts "page num #{page_num}"
       doc = Nokogiri::HTML(open("#{base_url}?start=#{page_num*35}"))
       doc.css('.member-list').last.css('div.name a').each do |user|
-        user_id = user_url_to_id(user["href"])
-        puts "user_id #{user_id}"
-        user = User.find_with_douban Douban.user(user_id)
         p user
-        sleep 0.5
+        user_id = user_url_to_id(user["href"])
+        user_info = Douban.user(user_id)
+        if user_info.msg
+          raise "api limit exceed"
+        else
+          new_user = User.find_with_douban user_info
+          p new_user
+        end
+        sleep 5
       end
     end
 
