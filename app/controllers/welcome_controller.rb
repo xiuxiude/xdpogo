@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  caches_page :index
+  caches_action :index
 
   def index
     @events = Event.where("begin_time>=:date", date:Time.now)
