@@ -1,12 +1,11 @@
 //= require_self
 //= require_tree .
 
-@import "bootswatch/journal/variables";
+@import "bootswatch/spacelab/variables";
 @import "bootstrap";
-
 body { 
   padding-top: 80px;
 }
 
 @import "bootstrap-responsive";
-@import "bootswatch/journal/bootswatch";
+@import "bootswatch/spacelab/bootswatch";
