@@ -52,6 +52,7 @@ GEM
     coffee-script-source (1.4.0)
     colored (1.2)
     daemons (1.1.9)
+    dalli (2.6.2)
     douban_api (0.1.4)
       faraday (>= 0.7, < 0.9)
       faraday_middleware (~> 0.8)
@@ -176,6 +177,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.0.1)
   bootswatch-rails
   coffee-rails (~> 3.2.1)
+  dalli
   douban_api (~> 0.1.4)
   jquery-rails
   meta_request

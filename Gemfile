@@ -11,6 +11,7 @@ gem 'nokogiri'
 gem 'thin'
 gem 'seed_dump'
 gem 'pry-rails'
+gem 'dalli'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
