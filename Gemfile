@@ -16,6 +16,7 @@ gem 'dalli'
 gem 'railties', "~> 4.0.0.beta1"
 gem 'actionpack-action_caching'
 gem 'protected_attributes'
+gem 'rack-cache'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
