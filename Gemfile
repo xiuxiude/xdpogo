@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+ruby "2.0.0"
+# gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', "~> 4.0.0.beta1"
 gem "slim", "~> 1.3.5"
 gem 'douban_api', '~> 0.1.4'
 gem 'whenever'
@@ -12,11 +13,14 @@ gem 'thin'
 gem 'seed_dump'
 gem 'pry-rails'
 gem 'dalli'
+gem 'railties', "~> 4.0.0.beta1"
+gem 'actionpack-action_caching'
+gem 'protected_attributes'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 4.0.0.beta1'
+  gem 'coffee-rails', '~> 4.0.0.beta1'
   gem 'bootstrap-sass', '~> 2.3.0.1'
   gem 'bootswatch-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -31,8 +35,8 @@ group :development do
   gem 'sqlite3'
   gem 'pry-remote'
   gem 'rails_best_practices'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
   gem 'meta_request'
 end
 
