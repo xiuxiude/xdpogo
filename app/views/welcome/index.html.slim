@@ -15,7 +15,7 @@ section#events
             tr
               td.show-title 
                 h3 = link_to event.title, event.douban_url
-              td = image_tag event.image
+              td = image_tag event.image_hlarge
               td
                 ul.user-list
                   = render :partial => "shared/user", :collection => event.wishers
