@@ -1,0 +1,28 @@
+section#event
+  .row
+    .span4
+    .span4
+      .event_poster  = image_tag @event.image_hlarge, :size => "300x380", :alt => @event.title
+  .row
+    .span2
+    .span2
+      - unless @event.wishers.empty?
+        h2 感兴趣的人
+        ul.user-list
+            = render :partial => "shared/user", :collection => @event.wishers
+      - else
+        .alert.alert-info
+          = 没有感兴趣的人
+    .span4
+    .span2
+      - unless @event.participanters.empty?
+        h2 要参加的人
+        ul.user-list
+            = render :partial => "shared/user", :collection => @event.participanters
+      - else
+        .alert.alert-info
+          = 没有要参加的人
+    
+
+      
+        
