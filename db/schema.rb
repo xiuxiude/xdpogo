@@ -9,11 +9,11 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214112435) do
+ActiveRecord::Schema.define(version: 20130309011341) do
 
-  create_table "events", :force => true do |t|
+  create_table "events", force: true do |t|
     t.string   "adapt_url"
     t.string   "title"
     t.text     "content"
@@ -27,28 +27,34 @@ ActiveRecord::Schema.define(:version => 20130214112435) do
     t.integer  "wisher_count"
     t.datetime "begin_time"
     t.datetime "end_time"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "owner_id"
   end
 
-  create_table "participation_users", :id => false, :force => true do |t|
+  create_table "participation_users", id: false, force: true do |t|
     t.integer "event_id"
     t.integer "user_id"
   end
 
-  create_table "users", :force => true do |t|
+  add_index "participation_users", ["event_id"], name: "index_participation_users_on_event_id"
+  add_index "participation_users", ["user_id"], name: "index_participation_users_on_user_id"
+
+  create_table "users", force: true do |t|
     t.string   "avatar"
     t.string   "signature"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "wish_users", :id => false, :force => true do |t|
+  create_table "wish_users", id: false, force: true do |t|
     t.integer "event_id"
     t.integer "user_id"
   end
+
+  add_index "wish_users", ["event_id"], name: "index_wish_users_on_event_id"
+  add_index "wish_users", ["user_id"], name: "index_wish_users_on_user_id"
 
 end
