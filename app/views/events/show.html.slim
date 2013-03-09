@@ -11,8 +11,7 @@ section#event
         ul.user-list
             = render :partial => "shared/user", :collection => @event.wishers
       - else
-        .alert.alert-info
-          = 没有感兴趣的人
+        .alert.alert-info 没有感兴趣的人
     .span4
     .span2
       - unless @event.participanters.empty?
@@ -20,8 +19,7 @@ section#event
         ul.user-list
             = render :partial => "shared/user", :collection => @event.participanters
       - else
-        .alert.alert-info
-          = 没有要参加的人
+        .alert.alert-info 没有要参加的人
     
 
       
