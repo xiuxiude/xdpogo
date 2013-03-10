@@ -1,11 +1,13 @@
+- title(@event.title)
 section#event
   .row
-    .span4
-    .span4
+    span12
+      h2.text-center = @event.title
+  .row
+    .span4.offset4
       .event_poster  = image_tag @event.image_hlarge, :size => "300x380", :alt => @event.title
   .row
-    .span2
-    .span2
+    .span2.offset2
       - unless @event.wishers.empty?
         h2 感兴趣的人
         ul.user-list
