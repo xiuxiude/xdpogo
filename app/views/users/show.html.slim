@@ -20,7 +20,7 @@ section#user
             - for event in @user.wish do
                 tr
                   td.show-title 
-                    h3 = link_to event.title, event.douban_url
+                    h3 = link_to event.title, event
                   td = image_tag event.image
       - else
         .alert.alert-info
