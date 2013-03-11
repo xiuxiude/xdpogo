@@ -5,6 +5,7 @@ ruby "2.0.0"
 
 # Bundle edge Rails instead:
 gem 'rails', "~> 4.0.0.beta1"
+gem 'turbolinks', "~> 1.0.0"
 gem "slim", "~> 1.3.5"
 gem 'douban_api', '~> 0.1.4'
 gem 'whenever'
