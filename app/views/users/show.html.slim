@@ -40,11 +40,9 @@ section#user
             - for event in @user.participant do
                 tr
                   td.show-title 
-                    h3 = link_to event.title, event.douban_url
+                    h3 = link_to event.title, event
                   td = image_tag event.image
       - else
         .alert.alert-info
           = @user.name
           | 没有要参加的演出
-
-        
