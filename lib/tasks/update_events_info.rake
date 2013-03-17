@@ -5,12 +5,17 @@ namespace :douban do
     .order("begin_time DESC")
     .each do |event|
       p event
-      wishers = get_users(:event_wishers, event.id).map{|u| u.id.to_i}
-      participanters = get_users(:event_participants, event.id).map{|u| u.id.to_i}
-      users = User.all.map(&:id)
-      event.wishers = User.where(:id=>wishers&users)
-      event.participanters = User.where(:id=>participanters&users)
-      sleep 15
+      begin
+        wishers = get_users(:event_wishers, event.id).map{|u| u.id.to_i}
+        participanters = get_users(:event_participants, event.id).map{|u| u.id.to_i}
+        users = User.all.map(&:id)
+        event.wishers = User.where(:id=>wishers&users)
+        event.participanters = User.where(:id=>participanters&users)
+      rescue Douban::NotFound=>e
+        event.delete
+      ensure 
+        sleep 15
+      end
     end
   end
   
