@@ -27,7 +27,7 @@ namespace :douban do
       start += 50
       results += users
     end while users.size == 50
-    sleep 5
+    sleep 10
     results
   end
 end
