@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20130309011341) do
     t.integer  "wisher_count"
     t.datetime "begin_time"
     t.datetime "end_time"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "owner_id"
   end
 
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20130309011341) do
     t.string   "signature"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "wish_users", id: false, force: true do |t|
